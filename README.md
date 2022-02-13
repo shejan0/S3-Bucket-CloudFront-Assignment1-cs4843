@@ -12,4 +12,8 @@ To solve this, AWS' CloudFront technology is used, CloudFront is a CDN service p
 
 CloudFront uses OAI, or identification that can be applied to the S3 bucket policy so that only the public can pull from the edge locations can get the objects and cannot directly pull from the S3, thus making the S3 objects hidden from the public. The Edge Locations can pull from the bucket on regular updates or when the item is removed from cache and needs to be readded.
 
+This could be done using EC2, where a specific Linux VM is ran with a Apache or nginx web server program running on it, and the page itself is serviced from the web server. CloudFront could be used to provide edge locations for the assets pulled from the EC2 instance, but it would only be updated on occassion or on miss.  and the EC2 instance would not inform the cache that the original files have been changed
+
+A basic overview of the infrastucture can be drawn as:
+
 ![Diagram](InfrastructureGraphic.drawio.png)
